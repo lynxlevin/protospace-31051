@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     else
       @prototype = Prototype.find(params[:prototype_id])
       @comment = Comment.new
-      @comments = Comment.includes(:prototype)
+      @comments = Comment.where(prototype_id: params[:prototype_id])
       render "prototypes/show"
     end
   end
